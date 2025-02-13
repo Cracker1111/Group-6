@@ -41,4 +41,12 @@ body {
     width: 300px;
     margin: auto;
   }
-  
+
+  .center-text {
+    text-align: center;
+}
+
+.center-image {
+  display: block;
+  margin: auto;
+}
