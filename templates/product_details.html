@@ -21,14 +21,14 @@
   </header>
 
   <main>
-    <h2>{{ product.name }}</h2>
-    <p><strong>Description:</strong> {{ product.description }}</p>
-    <p><strong>Price:</strong> ${{ product.price }}</p>
-    <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+    <h2 class="center-text">{{ product.name }}</h2>
+    <p class="center-text"><strong>Description:</strong> {{ product.description }}</p>
+    <p class="center-text"><strong>Price:</strong> ${{ product.price }}</p>
+    <p class="center-text"><strong>Quantity:</strong> {{ product.quantity }}</p>
 
     <!-- Check if the product has an image, otherwise show the default one -->
     {% if product.image %}
-      <img src="{{ url_for('static', filename='uploads/' + product.image) }}" alt="{{ product.name }}">
+      <img src="{{ url_for('static', filename='uploads/' + product.image) }}" alt="{{ product.name }}" class="center-image">
     {% else %}
       <img src="{{ url_for('static', filename='images/no-image.jpg') }}" alt="No image available">
     {% endif %}

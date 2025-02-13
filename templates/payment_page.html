@@ -15,19 +15,13 @@
   </header>
 
   <main>
-    <h2>{{ product.name }}</h2>
-    <p><strong>Description:</strong> {{ product.description }}</p>
-    <p><strong>Price:</strong> ${{ product.price }}</p>
-    <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+    <h2 class="center-text">{{ product.name }}</h2>
+    <p class="center-text"><strong>Description:</strong> {{ product.description }}</p>
+    <p class="center-text"><strong>Price:</strong> ${{ product.price }}</p>
+    <p class="center-text"><strong>Quantity:</strong> {{ product.quantity }}</p>
 
-    <h3>Farmer's QR Code for Payment</h3>
-    <!-- Display the farmer's QR code -->
-    {% if farmer_qr_code %}
-      <img src="{{ url_for('static', filename='uploads\' + farmer_qr_code) }}" alt="Farmer QR Code">
-    {% else %}
-      <p>No QR code available for this farmer.</p>
-    {% endif %}
-    <img src="\static\uploads\farmer_qr_code.jpg" alt="QR Code Image">
+    <h3 class="center-text">Farmer's QR Code for Payment</h3>
+    <img src="\static\uploads\farmer_qr_code.jpg" alt="QR Code Image" class="center-image">
   </main>
 </body>
 </html>
