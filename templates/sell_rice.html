@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Rice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sell Rice</h1>
+    </header>
+
+    <main>
+        <!-- Display Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div>
+                <label for="name">Rice Name</label>
+                {{ form.name }}
+            </div>
+            <div>
+                <label for="description">Description</label>
+                {{ form.description }}
+            </div>
+            <div>
+                <label for="price">Price</label>
+                {{ form.price }}
+            </div>
+            <div>
+                <label for="quantity">Quantity</label>
+                {{ form.quantity }}
+            </div>
+            <div>
+                <label for="image">Upload Image</label>
+                {{ form.image }}
+            </div>
+            <button type="submit">{{ form.submit }}</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../static/css/ styles.css">
+</head>
+<body>
+  <header>
+    <h1>Login</h1>
+  </header>
+
+  <main>
+    <!-- Flash messages for login errors -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="flash {{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <!-- Login Form -->
+    <form method="POST" action="{{ url_for('login') }}">
+      {{ form.hidden_tag() }}
+
+      <!-- Username Field -->
+      <div>
+        <label for="username">Username</label>
+        {{ form.username(class_='form-input') }}
+      </div>
+
+      <!-- Password Field -->
+      <div>
+        <label for="password">Password</label>
+        {{ form.password(class_='form-input') }}
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="form-btn">{{ form.submit }}</button>
+      </div>
+    </form>
+
+    <!-- Link to Registration Page -->
+    <div>
+      <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+  </main>
+</body>
+</html>

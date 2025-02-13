@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="../static/css/ styles.css">
+</head>
+<body>
+  <header>
+    <h1>Register</h1>
+  </header>
+
+  <main>
+    <!-- Flash messages for success or error -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('register') }}">
+      {{ form.hidden_tag() }}
+      <div>
+        <label for="username">Username</label>
+        {{ form.username }}
+      </div>
+      <div>
+        <label for="password">Password</label>
+        {{ form.password }}
+      </div>
+      <div>
+        <label for="confirm_password">Confirm Password</label>
+        {{ form.confirm_password }}
+      </div>
+      <div>
+        <label for="role">Role</label>
+        {{ form.role }}
+      </div>
+      <button type="submit">{{ form.submit }}</button>
+    </form>
+  </main>
+</body>
+</html>
