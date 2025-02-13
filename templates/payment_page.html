@@ -23,10 +23,11 @@
     <h3>Farmer's QR Code for Payment</h3>
     <!-- Display the farmer's QR code -->
     {% if farmer_qr_code %}
-      <img src="{{ url_for('static', filename='uploads/' + farmer_qr_code) }}" alt="Farmer QR Code">
+      <img src="{{ url_for('static', filename='uploads\' + farmer_qr_code) }}" alt="Farmer QR Code">
     {% else %}
       <p>No QR code available for this farmer.</p>
     {% endif %}
+    <img src="\static\uploads\farmer_qr_code.jpg" alt="QR Code Image">
   </main>
 </body>
 </html>
